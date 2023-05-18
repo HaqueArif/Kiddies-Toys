@@ -3,6 +3,9 @@ import logo from '../../../../public/logo.png'
 
 
 const NavBar = () => {
+
+    
+    
     return (
         <div>
             <div className="navbar bg-[#a5c927] text-white">

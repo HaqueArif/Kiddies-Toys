@@ -1,0 +1,6 @@
+.bg{
+    background-image: url(../../../../public/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}

@@ -1,0 +1,101 @@
+[
+    {
+      "photo_url": "https://i.postimg.cc/wBYfpbQ0/Optimus-Prime.webp",
+      "name": "Optimus Prime",
+      "seller_name": "RoboToys",
+      "seller_email": "info@robotoys.com",
+      "price": 49.99,
+      "rating": 4.7,
+      "available_quantity": 8,
+      "detail_description": "Lead the Autobots into battle with this impressive Optimus Prime action figure. It can transform between robot and truck modes and comes with a blaster accessory.",
+      "category": "Transformers"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/8P3XyCJ8/megatron.jpg",
+      "name": "Megatron",
+      "seller_name": "Decepticon Toys",
+      "seller_email": "contact@decepticontoys.com",
+      "price": 54.99,
+      "rating": 4.8,
+      "available_quantity": 5,
+      "detail_description": "Unleash the power of the Decepticons with this formidable Megatron action figure. It features intricate detailing, a fusion cannon accessory, and multiple points of articulation.",
+      "category": "Transformers"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/XYGm35S7/bbee.jpg",
+      "name": "Bumblebee",
+      "seller_name": "AutoBot Collectibles",
+      "seller_email": "sales@autobotcollectibles.com",
+      "price": 39.99,
+      "rating": 4.5,
+      "available_quantity": 10,
+      "detail_description": "Get ready for action-packed adventures with this Bumblebee action figure. It can transform into a sleek sports car and comes with a blaster weapon.",
+      "category": "Transformers"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/ZqPfKFfZ/Darth-Vader.jpg",
+      "name": "Darth Vader",
+      "seller_name": "Galactic Toys",
+      "seller_email": "sales@galactictoys.com",
+      "price": 39.99,
+      "rating": 4.8,
+      "available_quantity": 5,
+      "detail_description": "Embrace the power of the dark side with this Darth Vader action figure. It features a removable helmet, lightsaber accessory, and a display stand.",
+      "category": "Star Wars"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/CxqP9VkR/Rey-jpg.jpg",
+      "name": "Rey",
+      "seller_name": "Resistance Toys",
+      "seller_email": "contact@resistancetoys.com",
+      "price": 34.99,
+      "rating": 4.6,
+      "available_quantity": 7,
+      "detail_description": "Join the fight against the First Order with this Rey action figure. It comes with a staff, blaster, and multiple points of articulation for dynamic poses.",
+      "category": "Star Wars"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/59sRCgf2/Yoda.jpg",
+      "name": "Yoda",
+      "seller_name": "Jedi Collectibles",
+      "seller_email": "info@jedicollectibles.com",
+      "price": 29.99,
+      "rating": 4.7,
+      "available_quantity": 8,
+      "detail_description": "Train in the ways of the Force with this Yoda action figure. It features realistic facial details, a lightsaber, and a cane accessory.",
+      "category": "Star Wars"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/xCGHr61D/Iron-Man.webp",
+      "name": "Iron Man",
+      "seller_name": "Toy Paradise",
+      "seller_email": "toyparadise@example.com",
+      "price": 29.99,
+      "rating": 4.5,
+      "available_quantity": 10,
+      "detail_description": "Bring the armored Avenger to life with this highly detailed Iron Man action figure. It features multiple points of articulation and comes with interchangeable accessories.",
+      "category": "Marvel"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/QxVnk7Mk/e0d32aa56c82c7fae5bae7ed6fc72ab1.jpg",
+      "name": "Spider-Man",
+      "seller_name": "Web Warriors",
+      "seller_email": "info@webwarriors.com",
+      "price": 34.99,
+      "rating": 4.7,
+      "available_quantity": 8,
+      "detail_description": "Swing into action with this amazing Spider-Man action figure. It features a web-slinging pose, interchangeable hands, and a display base inspired by the city skyline.",
+      "category": "Marvel"
+    },
+    {
+      "photo_url": "https://i.postimg.cc/ncLNR53m/Black-Widow.jpg",
+      "name": "Black Widow",
+      "seller_name": "Espionage Toys",
+      "seller_email": "sales@espionagetoys.com",
+      "price": 39.99,
+      "rating": 4.6,
+      "available_quantity": 6,
+      "detail_description": "Unleash the deadly skills of Black Widow with this action figure. It comes with various weapons, a dynamic stand, and highly detailed features to capture the essence of the super-spy.",
+      "category": "Marvel"
+    }
+  ]
