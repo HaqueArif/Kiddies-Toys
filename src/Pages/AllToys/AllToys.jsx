@@ -6,26 +6,41 @@ const AllToys = () => {
     const [toys, SetToys] = useState([]);
     const [showAll, setShowAll] = useState(false);
 
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredToys, setFilteredToys] = useState(toys);
+
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:5000/allToys')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                SetToys(data)
+                SetToys(data);
+                setFilteredToys(data);
             })
     }, [])
+
+    const handleSearch = () => {
+        const filtered = toys.filter((toy) =>
+            toy.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        
+        setFilteredToys(filtered);
+    };
+
 
     const handleShowAll = () => {
         setShowAll(true);
     };
 
-    const visibleToys = showAll ? toys : toys.slice(0, 20);
+    // const visibleToys = showAll ? toys : toys.slice(0, 20);
+
+    const visibleToys = searchQuery !== "" ? filteredToys : toys.slice(0, 20);
 
     useEffect(() => {
         if (toys.length >= 20) {
-          setShowAll(true);
+            setShowAll(true);
         }
-      }, [toys]);
+    }, [toys]);
 
 
     return (
@@ -34,10 +49,17 @@ const AllToys = () => {
             <p className="md:w-3/5 mx-auto text-center">Discover a world of toys across various categories, including outdoor play, arts and crafts, puzzles, dolls and action figures, educational toys, construction sets, and cuddly plush companions. Each category is designed to engage, inspire, and bring joy to children of all ages.</p>
             <h2>services{toys.length}</h2>
 
+            <div className="mt-3 flex justify-center">
+                <input type="text" placeholder="Search for a toy..." className="border border-gray-300 rounded py-2 px-4"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button onClick={handleSearch} className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >Search</button>
+            </div>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
-                    {/* head */}
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -49,13 +71,16 @@ const AllToys = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {/* {
                             visibleToys.map(toy => <AlltoysCard
-                                key={toy.name}
+                                key={toy._id}
                                 toy={toy}
 
                             ></AlltoysCard>)
-                        }
+                        } */}
+                        {visibleToys.map((toy) => (
+                            <AlltoysCard key={toy._id} toy={toy}></AlltoysCard>
+                        ))}
 
                     </tbody>
 

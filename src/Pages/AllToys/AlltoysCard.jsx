@@ -11,11 +11,11 @@ const AlltoysCard = ({ toy }) => {
     return (
 
         <tr>
-            <td>Name: {name}</td>
-            <td>Seller Name: {seller_name}</td>
-            <td>Sub Category: {category}</td>
-            <td>Price: ${price}</td>
-            <td>Available Quantity : {available_quantity}</td>
+            <td>{name}</td>
+            <td>{seller_name}</td>
+            <td>{category}</td>
+            <td>${price}</td>
+            <td>{available_quantity}</td>
             <button className="btn bg-[#a5c927] border-none mt-1"  htmlFor="my-modal" >View Details</button >
         </tr>
 

@@ -1,9 +1,6 @@
 import React from 'react';
 
-const ViewDetails = () => {
-
-    
-    
+const ViewToyDetails = () => {
     return (
         <div>
             
@@ -11,4 +8,4 @@ const ViewDetails = () => {
     );
 };
 
-export default ViewDetails;
+export default ViewToyDetails;
