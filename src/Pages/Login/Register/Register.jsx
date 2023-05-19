@@ -5,9 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-    const [error, setError, logOut] = useState(null);
+    const [error, setError] = useState(null);
 
-    const { loading, createUser,  } = useContext(AuthContext);
+    const { loading, createUser, updateUserData  } = useContext(AuthContext);
     const navigate = useNavigate();
 
     if(loading){
@@ -28,9 +28,8 @@ const Register = () => {
         console.log(name, photo, email, password);
         createUser(email, password)
             .then(result => {
-                logOut();
                 const createdUser = result.user;
-              
+                updateUserData(result.user, name, photo)
                 console.log(createdUser);
                 setError(null)
                 navigate('/login')
