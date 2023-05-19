@@ -33,7 +33,6 @@ const AllToys = () => {
         setShowAll(true);
     };
 
-    // const visibleToys = showAll ? toys : toys.slice(0, 20);
 
     const visibleToys = searchQuery !== "" ? filteredToys : toys.slice(0, 20);
 
