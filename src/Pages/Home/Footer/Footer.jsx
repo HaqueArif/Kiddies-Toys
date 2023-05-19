@@ -1,16 +1,15 @@
 import logo from '../../../../public/logo.png'
 import medias from '../../../assets/Media/Group 9969.png'
-import doller from '../../../assets/icons/doller.png'
-import location from '../../../assets/icons/location.png'
-import phone from '../../../assets/icons/phone.png'
-import email from '../../../assets/icons/email.png'
+import location from '../../../assets/ohters/location.png'
+import phone from '../../../assets/ohters/phone.png'
+import email from '../../../assets/ohters/email.png'
 
 const Footer = () => {
 
     // (including website logo, name, copyright, some contact information, social media links, address, etc.)
 
     return (
-        <footer className='ps-10 pb-5 pt-16 mt-20 bg-[#a5c927]  text-base-content'>
+        <footer className='px-2 md:px-10 pb-5 pt-16 mt-20 bg-[#a5c927]  text-base-content'>
             <div className="footer">
                 <div className="text-white font-semibold">
                     <img className='w-40 mb-10' src={logo} alt="logo" />
@@ -39,7 +38,7 @@ const Footer = () => {
                         <span className="footer-title text-4xl text-center">Lets be penpals</span>
                         <p className=" text-center mb-5">Join our newsletter and receive 15% off your first order.</p>
                         <div>
-                            <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16 mb-3 " />
+                            <input type="text" placeholder="username@site.com" className="input input-bordered w-full md:pr-16 mb-3 " />
                             <button className="btn bg-white border-none text-[#a5c927] font-bold text-lg w-full">Sign me up</button>
                         </div>
                         <div className='mt-5 flex flex-col items-center '>
@@ -48,8 +47,10 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-
-            <p className='mt-6 text-center text-white font-bold'>Address: Moulvibazar-3200, Sylhet, Bangladesh.</p>
+            <div className='flex justify-center  gap-2 mt-5 items-center'>
+            <img className='w-5 h-5 rounded-full bg-slate-50 ' src={location} alt="" />
+            <p className=' text-center text-white font-bold'>Address: Moulvibazar-3200, Sylhet, Bangladesh.</p>
+            </div>
             <p className=' text-center text-slate-100'>&copy; 2023 Kiddies Toy Store- BD. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
         </footer>
     );
