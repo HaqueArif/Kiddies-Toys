@@ -5,16 +5,16 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-    const [error, setError] = useState(null);
+    const [error, setError, logOut] = useState(null);
 
     const { loading, createUser,  } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    // if(loading){
-    //     return <div className='min-h-screen flex justify-center items-center'>
-    //         <p className='animate-ping'>Loading</p>
-    //     </div>
-    // }
+    if(loading){
+        return <div className='min-h-screen flex justify-center items-center'>
+            <p className='animate-ping'>Loading</p>
+        </div>
+    }
 
     const handleRegister = event => {
         event.preventDefault();
@@ -28,7 +28,7 @@ const Register = () => {
         console.log(name, photo, email, password);
         createUser(email, password)
             .then(result => {
-                // logOut();
+                logOut();
                 const createdUser = result.user;
               
                 console.log(createdUser);

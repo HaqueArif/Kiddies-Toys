@@ -26,7 +26,20 @@ const router = createBrowserRouter([
         {
           path:'/register',
           element: <Register></Register>
-        }
+        },
+        {
+          path: '/allToys',
+          element: <AllToys></AllToys>
+        },
+        {
+          path: 'toyDetails/:id',
+          element:<ViewToyDetails></ViewToyDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/allToys/${params.id}`) 
+        },
+        {
+          path: 'addToys',
+          element: <AddaToy></AddaToy>
+        },
        
 
       ]
@@ -39,19 +52,6 @@ const router = createBrowserRouter([
             path: '/home',
             element: <Home></Home>
         },
-        {
-          path: 'addToys',
-          element: <AddaToy></AddaToy>
-        },
-        {
-          path: 'allToys',
-          element: <AllToys></AllToys>
-        },
-        {
-          path: 'toyDetails/:id',
-          element:<ViewToyDetails></ViewToyDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/allToys/${params.id}`) 
-        }
       ]
     },
     {

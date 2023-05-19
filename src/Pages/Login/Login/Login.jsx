@@ -1,8 +1,22 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const Login = () => {
+    const [error, setError] = useState(null);
 
+    const { loading, signIn } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/home"
+
+    if (loading) {
+        return <div className='min-h-screen flex justify-center items-center'>
+            <p className='animate-ping'>Loading</p>
+        </div>
+    }
     const handleSignIn = event => {
         event.preventDefault();
         const form = event.target;
@@ -11,23 +25,23 @@ const Login = () => {
         form.reset();
         console.log(email, password);
 
-        // signIn(email, password)
-        //     .then(result => {
-        //         const loggedUser = result.user;
-        //         console.log(loggedUser);
-        //         navigate(from, { replace: true });
-        //     })
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true });
+            })
 
-        //     .catch(error => {
-        //         console.log(error);
-        //         if (error.code === 'auth/user-not-found') {
-        //             setError('Email address not found. Please check and try again.');
-        //         } else if (error.code === 'auth/wrong-password') {
-        //             setError('Incorrect password.');
-        //         } else {
-        //             setError('Something went wrong. Please try again later.');
-        //         }
-        //     });
+            .catch(error => {
+                console.log(error);
+                if (error.code === 'auth/user-not-found') {
+                    setError('Email address not found. Please check and try again.');
+                } else if (error.code === 'auth/wrong-password') {
+                    setError('Incorrect password.');
+                } else {
+                    setError('Something went wrong. Please try again later.');
+                }
+            });
     }
     const handleGoogleSignin = () => {
         // SignInWithGoogle()
