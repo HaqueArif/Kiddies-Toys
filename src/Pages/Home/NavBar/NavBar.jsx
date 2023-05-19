@@ -45,8 +45,10 @@ const NavBar = () => {
                     <ul className="menu menu-horizontal px-1 text-white">
                         <li className={location.pathname === "/home" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}><Link to="/home">Home</Link></li>
                         <li className={location.pathname === "/allToys" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}><Link to="/allToys">All Toys</Link></li>
-                        <li className={location.pathname === "/myToys" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/myToys">My Toys</Link></li>
-                        <li className={location.pathname === "/addToys" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/addToys">Add A Toy</Link></li>
+                        {user && 
+                        <><li className={location.pathname === "/myToys" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/myToys">My Toys</Link></li>
+                        <li className={location.pathname === "/addToys" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/addToys">Add A Toy</Link></li></>
+                        }
                         <li className={location.pathname === "/Blogs" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/blogs">Blogs</Link></li>
                     </ul>
                 </div>

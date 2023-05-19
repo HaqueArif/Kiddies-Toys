@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import googleLogos from '../../../assets/Media/google.png'
 
 
 const Login = () => {
     const [error, setError] = useState(null);
 
-    const { loading, signIn } = useContext(AuthContext);
+    const { loading, signIn, SignInWithGoogle } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -44,15 +45,15 @@ const Login = () => {
             });
     }
     const handleGoogleSignin = () => {
-        // SignInWithGoogle()
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         navigate(from, { replace: true })
-        //     })
-        //     .catch(error => {
-        //         console.log('errorrrr', error.message);
-        //     })
+        SignInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log('errorrrr', error.message);
+            })
     }
     
     return (
@@ -86,7 +87,7 @@ const Login = () => {
                     <div>
                         <p className='text-center mt-5'>Or Login With</p>
                         <div className='flex gap-3 mt-2 justify-center'>
-                            <Link onClick={handleGoogleSignin}><img src='' alt="" className='w-8' /></Link>
+                            <Link onClick={handleGoogleSignin}><img src={googleLogos} alt="" className='w-8' /></Link>
                             
                         </div>
                     </div>
