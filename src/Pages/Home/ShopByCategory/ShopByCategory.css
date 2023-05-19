@@ -1,0 +1,3 @@
+.btn-custom {
+    @apply px-4 py-2 mr-2 font-bold border border-gray-300 rounded-md shadow-sm hover:bg-[#ffc22c];
+}

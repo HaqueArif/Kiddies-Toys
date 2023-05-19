@@ -7,11 +7,11 @@ const ViewToyDetails = () => {
     const { photo_url, name, seller_name, seller_email, price, rating, available_quantity, detail_description } = toy;
 
     return (
-        <div className='px-5 py-20 md:px-20 '>
+        <div className='px-5 py-20 xl:px-20 '>
             <h2 className="text-3xl md:text-5xl text-center font-semibold mb-10">Toy Details</h2>
             <div className="card lg:card-side bg-slate-100  shadow-lg">
                 <div className='p-4'>
-                    <figure><img className='w-[700px] rounded-xl' src={photo_url} alt="Album" /></figure>
+                    <figure><img className='lg:w-[600px] xl:w-[700px] rounded-xl' src={photo_url} alt="Album" /></figure>
                 </div>
                 <div className="card-body md:flex justify-center items-center">
 
@@ -27,7 +27,7 @@ const ViewToyDetails = () => {
                     </div>
                     
                     <div className="card-actions w-full">
-                        <Link to='/allToys' className='w-full text-center bg-[#a5c927] px-5 py-5 rounded-xl text-white font-semibold hover:bg-[#ffc22c]'>Back to all toys</Link>
+                        <Link to='/' className='w-full text-center bg-[#a5c927] px-5 py-5 rounded-xl text-white font-semibold hover:bg-[#ffc22c]'>Back to Home</Link>
                     </div>
                 </div>
             </div>

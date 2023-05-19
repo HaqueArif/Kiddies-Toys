@@ -1,5 +1,6 @@
 import Gallery from "../Gallery/Gallery";
 import Hero from "../Hero/Hero";
+import ShopByCategory from "../ShopByCategory/ShopByCategory";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
           <Hero></Hero>
           <Gallery></Gallery>
+          <ShopByCategory></ShopByCategory>
         </div>
     );
 };
