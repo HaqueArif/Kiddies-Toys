@@ -73,7 +73,7 @@ const Login = () => {
                             <span className='mt-2'>Forget password?</span>
                         </div>
 
-                        <p className='mt-2 text-sm text-red-700'>error</p>
+                        <p className='mt-2 text-sm text-red-700'>{error}</p>
                     </div>
 
                     <div className='mt-5 px-6'>
