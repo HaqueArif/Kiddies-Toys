@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const AddaToy = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user);
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -61,10 +65,10 @@ const AddaToy = () => {
                         <div className="md:flex  justify-between gap-3">
                             <div className='flex md:w-full flex-col mb-3'>
                                 <label htmlFor="seller_name">Seller Name</label>
-                                <input type="text" name='seller_name' placeholder='Seller Name' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' required />
+                                <input type="text" name='seller_name' placeholder='Seller Name' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user.displayName} required />
                             </div><div className='flex md:w-full  flex-col mb-3'>
                                 <label htmlFor="seller_email">Seller email</label>
-                                <input type="email" name='seller_email' placeholder='Seller email' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' required />
+                                <input type="email" name='seller_email' placeholder='Seller email' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.email} required />
                             </div>
                         </div>
 
