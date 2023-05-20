@@ -58,7 +58,7 @@ const AllToys = () => {
                 >Search</button>
             </div>
 
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full shadow-md">
                 <table className="table w-full">
                     <thead>
                         <tr>

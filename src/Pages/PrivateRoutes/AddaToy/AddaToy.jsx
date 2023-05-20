@@ -50,7 +50,7 @@ const AddaToy = () => {
     return (
         <div>
             <form onSubmit={handleAddToy}>
-                <div className='max-w-5xl shadow-2xl bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
+                <div className='max-w-5xl shadow-md bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
                     <div className=' rounded-2xl px-5 md:px-8 py-8'>
                         <div className="md:flex  justify-between gap-3">
                             <div className='flex md:w-full flex-col mb-3'>
@@ -65,10 +65,10 @@ const AddaToy = () => {
                         <div className="md:flex  justify-between gap-3">
                             <div className='flex md:w-full flex-col mb-3'>
                                 <label htmlFor="seller_name">Seller Name</label>
-                                <input type="text" name='seller_name' placeholder='Seller Name' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user.displayName} required />
+                                <input type="text" name='seller_name' placeholder='Seller Name' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.displayName} disabled={user?.displayName ? true : false} required />
                             </div><div className='flex md:w-full  flex-col mb-3'>
                                 <label htmlFor="seller_email">Seller email</label>
-                                <input type="email" name='seller_email' placeholder='Seller email' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.email} required />
+                                <input type="email" name='seller_email' placeholder='Seller email' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.email} disabled={user?.email ? true : false} required />
                             </div>
                         </div>
 

@@ -3,10 +3,10 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import MyToysCard from './MyToysCard';
 
 const MyToys = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const url = `http://localhost:5000/myToys?seller_email=${user.email}`
-
+    
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -19,7 +19,7 @@ const MyToys = () => {
         <div className='mx-5 lg:mx-40 md:mx-20'>
             <h2 className="text-3xl md:text-5xl text-center font-semibold mt-10">My Toys</h2>
             <h2>New Products{myToys.length}</h2>
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full shadow-md">
                 <table className="table w-full">
                     <thead>
                         <tr>
@@ -33,7 +33,7 @@ const MyToys = () => {
                     <tbody>
                         
                         {myToys.map((toy) => (
-                            <MyToysCard key={toy._id} toy={toy}></MyToysCard>
+                            <MyToysCard key={toy._id} toy={toy} loading={loading}></MyToysCard>
                         ))}
 
                     </tbody>
