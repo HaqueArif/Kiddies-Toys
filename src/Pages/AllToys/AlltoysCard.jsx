@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AlltoysCard = ({ toy }) => {
 
-    const [viewToy, setViewToy] = useState(null);
+    const { user} = useContext(AuthContext);
     const { _id, name, seller_name, price, available_quantity,category } = toy;
 
+
+    const handleAlert = ()=>{
+        if(!user){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You have to log in first to view details',
+              })
+        }
+    }
 
 
 
@@ -19,7 +31,7 @@ const AlltoysCard = ({ toy }) => {
             <td>{available_quantity}</td>
             <td className="text-end">
                 <Link to= {`/toyDetails/${_id}`}>
-                    <button className="btn bg-[#a5c927] hover:bg-[#ffc22c] border-none mt-1">View Details</button >
+                    <button onClick={handleAlert} className="btn bg-[#a5c927] hover:bg-[#ffc22c] border-none mt-1">View Details</button >
                 </Link>
             </td>
         </tr>
