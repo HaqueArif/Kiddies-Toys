@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import googleLogos from '../../../assets/Media/google.png'
+import loadingGif from '../../../assets/ohters/loading.gif'
 
 
 const Login = () => {
@@ -13,11 +14,12 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/home"
 
-    if (loading) {
+    if(loading){
         return <div className='min-h-screen flex justify-center items-center'>
-            <p className='animate-ping'>Loading</p>
+            <img src={loadingGif} alt="" />
         </div>
     }
+
     const handleSignIn = event => {
         event.preventDefault();
         const form = event.target;
@@ -58,7 +60,7 @@ const Login = () => {
     
     return (
         <div>
-            <h2 className="text-3xl md:text-5xl text-center font-semibold mt-10 mb-5">Login</h2>
+            <h2 className="text-3xl md:text-5xl text-center text-slate-500 font-semibold mt-10 mb-5">Login</h2>
             <form onSubmit={handleSignIn}>
                 <div className='max-w-sm shadow-2xl bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
                     <div className=' rounded-2xl px-5 md:px-8 py-8'>

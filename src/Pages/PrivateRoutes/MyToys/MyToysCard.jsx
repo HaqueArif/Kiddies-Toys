@@ -3,10 +3,11 @@ import Swal from "sweetalert2";
 
 
 
-const MyToysCard = ({ toy }) => {
+const MyToysCard = ({ toy, myToys, setMyToys }) => {
 
     const { loading, _id, photo_url, name, seller_name, seller_email, category, price, rating, available_quantity, detail_description } = toy;
 
+   
 
     const handleDelete = _id => {
         console.log(_id);
@@ -15,8 +16,8 @@ const MyToysCard = ({ toy }) => {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#a5c927',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
 
@@ -33,12 +34,15 @@ const MyToysCard = ({ toy }) => {
                                 'Toy has been deleted.',
                                 'success'
                             )
+                            const remaining = myToys.filter(mT => mT._id !==_id );
+                            setMyToys(remaining);
                         }
                     })
 
             }
         })
     }
+    
 
     return (
         <tr>
@@ -62,12 +66,13 @@ const MyToysCard = ({ toy }) => {
 
             <td className="flex flex-col gap-1">
                 <Link to={`/updateToys/${_id}`}>
-                    <button className="p-2 rounded-md font-bold text-white bg-[#a5c927] hover:rounded-2xl  hover:bg-[#ffc22c] border-none">Update</button>
+                    <button className="btn w-full rounded-md font-bold text-white bg-[#a5c927] hover:rounded-2xl  hover:bg-[#ffc22c] border-none">Update</button>
                 </Link>
                 <button
                     onClick={() => handleDelete(_id)}
-                    className="p-2 rounded-md font-bold text-white bg-red-500 hover:rounded-2xl  hover:bg-orange-700 border-none ">Delete</button>
+                    className="btn w-full rounded-md font-bold text-white bg-red-500 hover:rounded-2xl  hover:bg-orange-700 border-none ">Delete</button>
             </td>
+            
         </tr>
 
     );

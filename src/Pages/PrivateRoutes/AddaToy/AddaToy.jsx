@@ -4,7 +4,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const AddaToy = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     console.log(user);
 
     const handleAddToy = event => {
@@ -20,37 +20,38 @@ const AddaToy = () => {
         const available_quantity = form.available_quantity.value;
         const detail_description = form.detail_description.value;
 
-        const newToy = {photo_url, name, seller_name, seller_email, category, price, rating, available_quantity, detail_description};
+        const newToy = { photo_url, name, seller_name, seller_email, category, price, rating, available_quantity, detail_description };
         console.log(newToy);
 
         // Send data to the server site
-        fetch('http://localhost:5000/allToys',{
+        fetch('http://localhost:5000/allToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
             body: JSON.stringify(newToy)
         })
-        .then(res=> res.json())
-        .then(data =>{
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'New Toy has been added',
-                    icon: 'success',
-                    confirmButtonText: 'Add more'
-                  })
-            }
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'New Toy has been added',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
+                }
+            })
+        form.reset();
     }
 
 
     return (
-        <div>
+        <div className="mt-20 mb-32">
+            <h2 className="text-center text-3xl mb-5">Please fill out this form with information about your toys.</h2>
             <form onSubmit={handleAddToy}>
-                <div className='max-w-5xl shadow-md bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
+                <div className='max-w-5xl  shadow-md bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
                     <div className=' rounded-2xl px-5 md:px-8 py-8'>
                         <div className="md:flex  justify-between gap-3">
                             <div className='flex md:w-full flex-col mb-3'>
@@ -76,7 +77,7 @@ const AddaToy = () => {
                             <div className='flex md:w-full flex-col mb-3'>
                                 <label htmlFor="category">Sub Category</label>
                                 <select name="category" className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' required >
-                                    
+
                                     <option value="Transformers">Transformers</option>
                                     <option value="Star Wars">Star Wars</option>
                                     <option value="Marvel">Marvel</option>
@@ -107,7 +108,7 @@ const AddaToy = () => {
                     </div>
 
                     <div className='mt-5 px-6'>
-                        <button className=' btn w-full bg-[#a5c927] hover:bg-[#ffc22c] border-none'>Login</button>
+                        <button className=' btn w-full bg-[#a5c927] hover:bg-[#ffc22c] border-none'>Add Toy</button>
                     </div>
                 </div>
             </form>

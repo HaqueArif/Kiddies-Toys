@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import loadingGif from '../assets/ohters/loading.gif'
 
 
 const PrivateRoutes = ({children}) => {
@@ -9,7 +10,7 @@ const PrivateRoutes = ({children}) => {
     const location = useLocation();
     if(loading){
         return <div className='min-h-screen flex justify-center items-center'>
-            <p className='animate-ping'>Loading</p>
+            <img src={loadingGif} alt="" />
         </div>
     }
 

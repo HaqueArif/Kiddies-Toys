@@ -8,49 +8,43 @@ const UpdateToys = () => {
     const toy = useLoaderData();
     const { _id, photo_url, name, seller_name, seller_email, category, price, rating, available_quantity, detail_description } = toy;
 
-    const handleAddToy = event => {
+    const handleUpdateToy = event => {
         event.preventDefault();
         const form = event.target;
-        const photo_url = form.photo_url.value;
-        const name = form.name.value;
-        const seller_name = form.seller_name.value;
-        const seller_email = form.seller_email.value;
-        const category = form.category.value;
         const price = form.price.value;
-        const rating = form.rating.value;
         const available_quantity = form.available_quantity.value;
         const detail_description = form.detail_description.value;
 
-        const newToy = { photo_url, name, seller_name, seller_email, category, price, rating, available_quantity, detail_description };
-        console.log(newToy);
+        const updatedToy = { price, available_quantity, detail_description };
+        console.log(updatedToy);
 
         // Send data to the server site
-        fetch('http://localhost:5000/allToys', {
-            method: 'POST',
+        fetch(`http://localhost:5000/myToys/${_id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(newToy)
+            body: JSON.stringify(updatedToy)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'New Toy has been added',
+                        text: 'Toy has been Updated',
                         icon: 'success',
                         confirmButtonText: 'Add more'
                     })
                 }
             })
-
+        form.reset();
     }
 
 
     return (
         <div className='mt-10'>
-            <form onSubmit={handleAddToy}>
+            <form onSubmit={handleUpdateToy}>
                 <div className='max-w-5xl shadow-md bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
                     <div className=' rounded-2xl px-5 md:px-8 py-8'>
                         <div className='opacity-60'>
@@ -67,10 +61,10 @@ const UpdateToys = () => {
                             <div className="md:flex  justify-between gap-3">
                                 <div className='flex md:w-full flex-col mb-3'>
                                     <label htmlFor="seller_name">Seller Name</label>
-                                    <input type="text" name='seller_name' placeholder='Seller Name' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.displayName} disabled required />
+                                    <input type="text" className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.displayName} disabled required />
                                 </div><div className='flex md:w-full  flex-col mb-3'>
                                     <label htmlFor="seller_email">Seller email</label>
-                                    <input type="email" name='seller_email' placeholder='Seller email' className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.email} disabled required />
+                                    <input type="email" className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.email} disabled required />
                                 </div>
                             </div>
 

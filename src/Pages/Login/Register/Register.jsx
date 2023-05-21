@@ -2,6 +2,8 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import loadingGif from '../../../assets/ohters/loading.gif'
 
 const Register = () => {
 
@@ -12,7 +14,7 @@ const Register = () => {
 
     if(loading){
         return <div className='min-h-screen flex justify-center items-center'>
-            <p className='animate-ping'>Loading</p>
+            <img src={loadingGif} alt="" />
         </div>
     }
 
@@ -32,6 +34,14 @@ const Register = () => {
                 updateUserData(result.user, name, photo)
                 console.log(createdUser);
                 setError(null)
+                if (createdUser) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'New Toy has been added',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
+                }
                 navigate('/login')
             })
 
@@ -50,7 +60,8 @@ const Register = () => {
     }
     
     return (
-        <div>
+        <div className=''>
+            <h2 className="text-3xl md:text-5xl text-center text-slate-500 font-semibold mt-10 mb-5">Please Register!</h2>
             <form onSubmit={handleRegister}>
                 <div className='max-w-sm shadow-2xl bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
                     <div className=' rounded-2xl px-5 md:px-8 py-8'>
