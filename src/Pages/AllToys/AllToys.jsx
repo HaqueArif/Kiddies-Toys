@@ -9,10 +9,7 @@ const AllToys = () => {
     const [showAll, setShowAll] = useState(false);
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [filteredToys, setFilteredToys] = useState(toys);
-
-    
-
+    const [filteredToys, setFilteredToys] = useState([]);
   
 
     useEffect(() => {
@@ -24,6 +21,14 @@ const AllToys = () => {
                 setFilteredToys(data);
             })
     }, [])
+
+    useEffect(() => {
+        setFilteredToys(
+          toys.filter(toy =>
+            toy.name.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        );
+      }, [searchQuery, toys]);
 
    
 
@@ -38,17 +43,17 @@ const AllToys = () => {
 
 
     const handleShowAll = () => {
-        setShowAll(true);
+        if (searchQuery !== "") {
+            setShowAll(true);
+          } else {
+            setShowAll(!showAll);
+          }
     };
 
 
-    const visibleToys = searchQuery !== "" ? filteredToys : toys.slice(0, 20);
+    const visibleToys = showAll ? filteredToys  : filteredToys.slice(0, 2);
 
-    useEffect(() => {
-        if (toys.length >= 20) {
-            setShowAll(true);
-        }
-    }, [toys]);
+
 
     useEffect(()=>{
         document.title = 'KIDDIES | All Toys'
@@ -80,7 +85,7 @@ const AllToys = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th><span title={name}>{name.slice(0, 25)}{name.length > 25 ? '...' : ''}</span></th>
                             <th>Seller</th>
                             <th>Sub Category</th>
                             <th>Price</th>
@@ -99,9 +104,10 @@ const AllToys = () => {
             </div>
 
             <div className='mt-5 text-center'>
-                {toys.length >= 20 && !showAll && (
+                {!showAll && (
                     <button onClick={handleShowAll} className='btn border-none shadow-lg bg-gradient-to-r from-indigo-500 to-purple-500 hover:shadow-xl hover:scale-110'>Show All</button>
                 )}
+                
             </div>
         </div>
     );

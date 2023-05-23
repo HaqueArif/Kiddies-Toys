@@ -52,9 +52,10 @@ const MyToysCard = ({ toy, myToys, setMyToys }) => {
                     <div className="mask mask-squircle w-24">
                         <img src={photo_url} alt={name} />
                     </div>
-                    <h3>{name}</h3>
+                    <h3 title={name}>
+                   <span>{name.slice(0, 25)}{name.length > 25 ? '...' : ''}</span></h3>
                     <p title={detail_description}>
-                        <span className="font-bold">Description: </span><span>{detail_description.slice(0, 30)}{detail_description.length > 10 ? '...' : ''}</span>
+                        <span className="font-bold">Description: </span><span>{detail_description.slice(0, 30)}{detail_description.length > 30 ? '...' : ''}</span>
                     </p>
                 </div>
             </td>

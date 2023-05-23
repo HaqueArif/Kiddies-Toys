@@ -23,7 +23,7 @@ const AlltoysCard = ({ toy }) => {
     return (
 
         <tr>
-            <td>{name}</td>
+            <td><span title={name}>{name.slice(0, 25)}{name.length > 25 ? '...' : ''}</span></td>
             <td>{seller_name}</td>
             <td>{category}</td>
             <td>${price}</td>

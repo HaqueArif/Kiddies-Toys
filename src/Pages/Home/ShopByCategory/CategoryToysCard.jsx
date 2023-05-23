@@ -24,12 +24,12 @@ const CategoryToysCard = ({ toy }) => {
 
     return (
 
-        <div className="card card-compact mx-auto bg-base-100 shadow-md">
+        <div className="card card-compact mx-auto bg-base-100 shadow-md w-full ">
             <div className='p-5 rounded-xl shadow'>
-                <figure><img src={photo_url} alt="toys" className='rounded-xl h-40' /></figure>
+                <figure><img src={toy?.photo_url} alt="toys" className='rounded-xl h-40' /></figure>
             </div>
             <div className="card-body">
-                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title" title={name}><span>{name.slice(0, 25)}{name.length > 25 ? '...' : ''}</span></h2>
                 <p>Price: ${price}</p>
                 <Rating style={{ maxWidth: 100 }} value={rating} readOnly />
                 <div className="">
