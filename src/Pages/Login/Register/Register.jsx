@@ -9,7 +9,7 @@ const Register = () => {
 
     const [error, setError] = useState(null);
 
-    const { loading, createUser, updateUserData  } = useContext(AuthContext);
+    const { loading, createUser, updateUserData, logOut  } = useContext(AuthContext);
     const navigate = useNavigate();
 
     if(loading){
@@ -36,12 +36,13 @@ const Register = () => {
                 setError(null)
                 if (createdUser) {
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'New Toy has been added',
+                        title: 'Registration Successful!',
+                        text: 'Now Login',
                         icon: 'success',
-                        confirmButtonText: 'Done'
+                        confirmButtonText: 'Ok'
                     })
                 }
+                logOut()
                 navigate('/login')
             })
 
@@ -60,10 +61,10 @@ const Register = () => {
     }
     
     return (
-        <div className=''>
-            <h2 className="text-3xl md:text-5xl text-center text-slate-500 font-semibold mt-10 mb-5">Please Register!</h2>
+        <div className='mb-32 mt-20 px-2'>
+            <h2 className="text-3xl md:text-5xl text-center text-slate-500 font-semibold mt-10 mb-10">Please Register!</h2>
             <form onSubmit={handleRegister}>
-                <div className='max-w-sm shadow-2xl bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
+                <div className='max-w-lg shadow-2xl bg-base-100 rounded-2xl mx-auto pt-2 pb-10  md:px-2 '>
                     <div className=' rounded-2xl px-5 md:px-8 py-8'>
 
                         <div className='flex flex-col mb-3'>

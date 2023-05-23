@@ -1,3 +1,4 @@
+import { Rating } from "@smastrom/react-rating";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -22,7 +23,7 @@ const MyToysCard = ({ toy, myToys, setMyToys }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myToys/${_id}`, {
+                fetch(`https://little-wonder-toys-server-haquearif143-gmailcom.vercel.app/myToys/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -60,7 +61,7 @@ const MyToysCard = ({ toy, myToys, setMyToys }) => {
             <td><p><span className="font-bold">Name: </span>{seller_name}</p>
                 <p><span className="font-bold">Email: </span>{seller_email}</p></td>
             <td><p><span className="font-bold">Category: </span>{category}</p>
-                <p><span className="font-bold">Ratings: </span>{rating}</p></td>
+            <Rating style={{ maxWidth: 100 }} value={rating} readOnly /></td>
             <td><p><span className="font-bold">Quantity: </span>{available_quantity}</p>
                 <p><span className="font-bold">Price: </span>${price}</p></td>
 

@@ -11,6 +11,7 @@ import Register from "../Pages/Login/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import MyToys from "../Pages/PrivateRoutes/MyToys/MyToys";
 import UpdateToys from "../Pages/PrivateRoutes/MyToys/UpdateToys";
+import Blog from "../Pages/Blogs/Blog";
 
 
 const router = createBrowserRouter([
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         {
           path: 'toyDetails/:id',
           element:<PrivateRoutes><ViewToyDetails></ViewToyDetails></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/allToys/${params.id}`) 
+          loader: ({params}) => fetch(`https://little-wonder-toys-server-haquearif143-gmailcom.vercel.app/allToys/${params.id}`) 
         },
         {
           path: 'addToys',
@@ -50,10 +51,12 @@ const router = createBrowserRouter([
         {
           path: '/updateToys/:id',
           element:<UpdateToys></UpdateToys>,
-          loader:({params})=>fetch(`http://localhost:5000/myToys/${params.id}`)
+          loader:({params})=>fetch(`https://little-wonder-toys-server-haquearif143-gmailcom.vercel.app/myToys/${params.id}`)
+        },
+        {
+          path: '/blogs',
+          element: <Blog></Blog>
         }
-       
-
       ]
     },
     {

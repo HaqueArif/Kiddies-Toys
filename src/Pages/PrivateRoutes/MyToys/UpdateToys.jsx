@@ -1,13 +1,19 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import loadingGif from '../../../assets/ohters/loading.gif'
 
 const UpdateToys = () => {
-    const { user, loading } = useContext(AuthContext);
+    const { loading } = useContext(AuthContext);
     const toy = useLoaderData();
-    const { _id, photo_url, name, seller_name, seller_email, category, price, rating, available_quantity, detail_description } = toy;
+    const { _id, photo_url, name, seller_name, seller_email, category, rating} = toy;
 
+    if(loading){
+        return <div className='min-h-screen flex justify-center items-center'>
+        <img src={loadingGif} alt="" />
+    </div>
+    }
     const handleUpdateToy = event => {
         event.preventDefault();
         const form = event.target;
@@ -19,7 +25,7 @@ const UpdateToys = () => {
         console.log(updatedToy);
 
         // Send data to the server site
-        fetch(`http://localhost:5000/myToys/${_id}`, {
+        fetch(`https://little-wonder-toys-server-haquearif143-gmailcom.vercel.app/myToys/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -34,11 +40,12 @@ const UpdateToys = () => {
                         title: 'Success!',
                         text: 'Toy has been Updated',
                         icon: 'success',
-                        confirmButtonText: 'Add more'
+                        confirmButtonText: 'Ok'
                     })
                 }
             })
         form.reset();
+        
     }
 
 
@@ -61,10 +68,10 @@ const UpdateToys = () => {
                             <div className="md:flex  justify-between gap-3">
                                 <div className='flex md:w-full flex-col mb-3'>
                                     <label htmlFor="seller_name">Seller Name</label>
-                                    <input type="text" className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.displayName} disabled required />
+                                    <input type="text" className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={seller_name} disabled required />
                                 </div><div className='flex md:w-full  flex-col mb-3'>
                                     <label htmlFor="seller_email">Seller email</label>
-                                    <input type="email" className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={user?.email} disabled required />
+                                    <input type="email" className='border bg-transparent border-gray-500 rounded-lg py-3 px-3' defaultValue={seller_email} disabled required />
                                 </div>
                             </div>
 

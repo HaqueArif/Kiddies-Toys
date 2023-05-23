@@ -46,7 +46,7 @@ const Login = () => {
                 }
             });
     }
-    const handleGoogleSignin = () => {
+    const handleGoogleSignIn = () => {
         SignInWithGoogle()
             .then(result => {
                 const user = result.user;
@@ -57,12 +57,12 @@ const Login = () => {
                 console.log('errorrrr', error.message);
             })
     }
-    
+
     return (
-        <div>
-            <h2 className="text-3xl md:text-5xl text-center text-slate-500 font-semibold mt-10 mb-5">Login</h2>
+        <div className="mb-60 mt-20 px-2">
+            <h2 className="text-3xl md:text-5xl text-center text-slate-500 font-semibold mt-10 mb-10">Login</h2>
             <form onSubmit={handleSignIn}>
-                <div className='max-w-sm shadow-2xl bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2  '>
+                <div className='max-w-lg shadow-2xl bg-base-100 rounded-2xl mx-auto pt-2 pb-10 px-2'>
                     <div className=' rounded-2xl px-5 md:px-8 py-8'>
                         <div className='flex flex-col mb-3'>
                             <label htmlFor="email">Email</label>
@@ -85,12 +85,12 @@ const Login = () => {
                     <div className='text-center mt-2'>
                         <Link to="/register" className='hover:btn-link'>New to KIDDIES? Register</Link>
                     </div>
-                    
+
                     <div>
                         <p className='text-center mt-5'>Or Login With</p>
                         <div className='flex gap-3 mt-2 justify-center'>
-                            <Link onClick={handleGoogleSignin}><img src={googleLogos} alt="" className='w-8' /></Link>
-                            
+                            <Link onClick={handleGoogleSignIn}><img src={googleLogos} alt="" className='w-8' /></Link>
+
                         </div>
                     </div>
                 </div>

@@ -6,24 +6,23 @@ import email from '../../../assets/ohters/email.png'
 
 const Footer = () => {
 
-    // (including website logo, name, copyright, some contact information, social media links, address, etc.)
 
     return (
-        <footer className='px-2 md:px-10 pb-5 pt-16 mt-20 bg-[#a5c927]  text-base-content'>
+        <footer className='px-2 md:px-10 pb-5 pt-16 bg-[#a5c927]  text-base-content'>
             <div className="footer">
                 <div className="text-white font-semibold">
                     <img className='w-40 mb-10' src={logo} alt="logo" />
                     <p className='md:w-60'>Welcome to our magical toy wonderland, where dreams come to life and laughter fills the air. Step into a world of endless fun and imagination with our extraordinary collection of toys designed to ignite the spark of joy in every child's heart. From timeless classics to the latest innovative wonders, we offer a wide range of captivating playthings for kids of all ages.</p>
                 </div>
 
-                <div className="text-white font-semibold mt-16">
+                <div className="text-white font-semibold md:mt-16">
                     <span className="text-2xl font-bold mb-2">Help</span>
                     <a className="link link-hover">FAQs</a>
                     <a className="link link-hover">Shipping Information</a>
                     <a className="link link-hover">Returns & Exchanges</a>
                     <a className="link link-hover">Accessibility Assistance</a>
                 </div>
-                <div className="text-white font-semibold mt-16">
+                <div className="text-white font-semibold md:mt-16">
                     <span className="text-2xl font-bold mb-2">Contact Us</span>
                     <div className='flex items-center gap-2'>
                         <img className='w-10 rounded-full bg-slate-50 p-2' src={email} alt="" /> <a className="link link-hover">Via Email</a>
@@ -32,7 +31,7 @@ const Footer = () => {
                         <img className='w-10 rounded-full bg-slate-50 p-2' src={phone} alt="" /> <a className="link link-hover">Tel: 999 333 999</a>
                     </div>
                 </div>
-                <div className="text-white font-semibold mt-16">
+                <div className="text-white mx-auto font-semibold mt-16">
 
                     <div className="form-control md:w-86">
                         <span className="footer-title text-4xl text-center">Lets be penpals</span>
@@ -47,9 +46,9 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center  gap-2 mt-5 items-center'>
-            <img className='w-5 h-5 rounded-full bg-slate-50 ' src={location} alt="" />
-            <p className=' text-center text-white font-bold'>Address: Moulvibazar-3200, Sylhet, Bangladesh.</p>
+            <div className='flex justify-center  md:gap-2 mt-5'>
+                <img className='w-5 h-5 rounded-full bg-slate-50 ' src={location} alt="location" />
+                <p className=' text-center text-white font-bold'>Address: Moulvibazar-3200, Sylhet, Bangladesh.</p>
             </div>
             <p className=' text-center text-slate-100'>&copy; 2023 Kiddies Toy Store- BD. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
         </footer>

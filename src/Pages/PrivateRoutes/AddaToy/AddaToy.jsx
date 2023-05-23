@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
@@ -24,7 +24,7 @@ const AddaToy = () => {
         console.log(newToy);
 
         // Send data to the server site
-        fetch('http://localhost:5000/allToys', {
+        fetch('https://little-wonder-toys-server-haquearif143-gmailcom.vercel.app/allToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -44,7 +44,13 @@ const AddaToy = () => {
                 }
             })
         form.reset();
+
+       
     }
+
+    useEffect(()=>{
+        document.title = 'KIDDIES | Add Toys'
+      },[]);
 
 
     return (

@@ -40,8 +40,9 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center gap-2 p-2 rounded-xl">
-                        <img className="w-20" src={logo} alt="" />
-                        <h2>WONDER TOYS</h2>
+                        <Link to='/home'>
+                            <img className="w-40" src={logo} alt="" />
+                        </Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -53,7 +54,7 @@ const NavBar = () => {
                             <><li className={location.pathname === "/myToys" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/myToys">My Toys</Link></li>
                                 <li className={location.pathname === "/addToys" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/addToys">Add A Toy</Link></li></>
                         }
-                        <li className={location.pathname === "/Blogs" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/blogs">Blogs</Link></li>
+                        <li className={location.pathname === "/blogs" ? "bg-white text-[#a5c927] font-bold rounded-lg" : ""}> <Link to="/blogs">Blogs</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

@@ -20,7 +20,6 @@ const AlltoysCard = ({ toy }) => {
     }
 
 
-
     return (
 
         <tr>

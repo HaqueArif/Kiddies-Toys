@@ -10,10 +10,7 @@ const GalleryCard = ({ item }) => {
       }, []);
 
     return (
-        // <div className="shadow-2xl bg-[#a5c927] p-1 rounded-xl">
-        //     <img src={img} alt="" className="rounded-xl shadow mb-3"/>
-        // </div>
-        <div className="shadow-2xl bg-[#a5c927] p-1 rounded-xl" data-aos="fade-up">
+        <div className="shadow-xl bg-[#a5c927] p-1 rounded-xl" data-aos="fade-up">
             <img src={img} alt="" className="rounded-xl shadow mb-3" />
         </div>
     );

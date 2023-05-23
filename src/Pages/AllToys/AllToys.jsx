@@ -1,16 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AlltoysCard from "./AlltoysCard";
+import { AuthContext } from "../../Provider/AuthProvider";
+import loadingGif from '../../assets/ohters/loading.gif'
 
 const AllToys = () => {
-
+    const { loading } = useContext(AuthContext);
     const [toys, SetToys] = useState([]);
     const [showAll, setShowAll] = useState(false);
 
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredToys, setFilteredToys] = useState(toys);
 
+    
+
+  
+
     useEffect(() => {
-        fetch('http://localhost:5000/allToys')
+        fetch('https://little-wonder-toys-server-haquearif143-gmailcom.vercel.app/allToys')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -18,6 +24,8 @@ const AllToys = () => {
                 setFilteredToys(data);
             })
     }, [])
+
+   
 
 
     const handleSearch = () => {
@@ -41,6 +49,16 @@ const AllToys = () => {
             setShowAll(true);
         }
     }, [toys]);
+
+    useEffect(()=>{
+        document.title = 'KIDDIES | All Toys'
+      },[]);
+
+      if(loading){
+        return <div className='min-h-screen flex justify-center items-center'>
+        <img src={loadingGif} alt="" />
+    </div>
+    }
 
 
     return (
