@@ -51,7 +51,7 @@ const AllToys = () => {
     };
 
 
-    const visibleToys = showAll ? filteredToys  : filteredToys.slice(0, 2);
+    const visibleToys = showAll ? filteredToys  : filteredToys.slice(0, 20);
 
 
 
